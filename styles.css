@@ -29,6 +29,40 @@ h1 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.score-board {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(0, 123, 255, 0.1);
+    border-radius: 15px;
+    border: 2px solid rgba(0, 123, 255, 0.2);
+}
+
+.score-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.player-label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #555;
+}
+
+.score {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #007bff;
+    min-width: 2rem;
+    padding: 0.5rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 .status {
     font-size: 1.2rem;
     margin-bottom: 2rem;
@@ -60,12 +94,20 @@ h1 {
     cursor: pointer;
     transition: all 0.3s ease;
     color: #333;
+    outline: none;
+    padding: 0;
+    font-family: inherit;
 }
 
 .cell:hover {
     background: #e9ecef;
     transform: scale(1.05);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cell:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
 }
 
 .cell.x {
@@ -88,16 +130,26 @@ h1 {
     100% { transform: scale(1); }
 }
 
-.reset-btn {
-    background: linear-gradient(45deg, #007bff, #0056b3);
-    color: white;
-    border: none;
+.button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.reset-btn, .reset-score-btn {
     padding: 12px 30px;
     font-size: 1.1rem;
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: bold;
+    border: none;
+}
+
+.reset-btn {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: white;
     box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
 }
 
@@ -106,7 +158,18 @@ h1 {
     box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
 }
 
-.reset-btn:active {
+.reset-score-btn {
+    background: linear-gradient(45deg, #6c757d, #495057);
+    color: white;
+    box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+}
+
+.reset-score-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(108, 117, 125, 0.4);
+}
+
+.reset-btn:active, .reset-score-btn:active {
     transform: translateY(0);
 }
 
@@ -121,6 +184,18 @@ h1 {
         font-size: 2rem;
     }
     
+    .score-board {
+        padding: 0.75rem;
+    }
+    
+    .player-label {
+        font-size: 0.9rem;
+    }
+    
+    .score {
+        font-size: 1.5rem;
+    }
+    
     .cell {
         width: 70px;
         height: 70px;
@@ -129,5 +204,15 @@ h1 {
     
     .game-board {
         max-width: 250px;
+    }
+    
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .reset-btn, .reset-score-btn {
+        width: 100%;
+        max-width: 200px;
     }
 }
